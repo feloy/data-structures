@@ -1,0 +1,18 @@
+<project name="Algo" default="build" basedir=".">
+  
+  <description>Algo</description>
+
+  <target name="build">
+    <javac includeantruntime="false" srcdir="." destdir=".">
+      <classpath>
+        <pathelement path="."/>
+        <pathelement path="/usr/share/java/junit4.jar"/>
+      </classpath>
+    </javac>
+  </target>
+
+  <target name="test" depends="build">
+    
+  </target>
+
+</project>
