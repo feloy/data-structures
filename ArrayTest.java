@@ -10,7 +10,7 @@ public class ArrayTest {
   }
 
   @Test
-  public void outOfBoundd() {
+  public void outOfBound() {
     Array<Integer> arr = new Array<Integer>(5);
     arr.insert(10, 1);
     assertEquals(0, arr.length);
