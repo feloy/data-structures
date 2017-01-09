@@ -2,7 +2,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class BinarySearchTreeTest {
-  @Test
+/*  @Test
   public void tree7() {
     BinarySearchTree tree = new BinarySearchTree(4);
     tree.insert(2);
@@ -39,4 +39,21 @@ public class BinarySearchTreeTest {
     BinarySearchTree tree = BinarySearchTree.complete(5, 0);
     tree.dump();
   }
+*/
+  @Test
+  public void delete() {
+    BinarySearchTree tree = BinarySearchTree.complete(3, 0);
+    tree.dump();
+    tree = tree.delete(4);
+    tree.dump();
+    /*
+    tree.dump();
+    tree = tree.delete(7);
+    tree.dump();
+    tree = tree.delete(6);
+    tree.dump();
+    tree = tree.delete(2);
+    tree.dump();*/
+  }
+
 }
