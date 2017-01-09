@@ -11,11 +11,11 @@ public class BinaryTree {
 
   public void dump() {
     int depth = depth(this);
-    System.out.println(depth);
 
     BinaryTree[] nodes = new BinaryTree[1];
     nodes[0] = this;
-    dumpLine(nodes);
+    System.out.println();
+    dumpLine(nodes, depth);
   }
 
   // Static
@@ -23,24 +23,32 @@ public class BinaryTree {
     if (tree == null) {
       return 0;
     }
-    return Math.max(depth(tree.left), depth(tree.right)) + 1;    
+    return Math.max(depth(tree.left), depth(tree.right)) + 1;
   }
 
-  private static void dumpLine(BinaryTree[] nodes) {
+  private static void dumpLine(BinaryTree[] nodes, int spaces) {
     BinaryTree[] nextNodes = new BinaryTree[nodes.length * 2];
     Boolean added = false;
-    for (int i=0; i<nodes.length; i++) {
+    for (int i = 0; i < nodes.length; i++) {
       BinaryTree node = nodes[i];
+      for (int s = 0; s < Math.pow(2, spaces) - 1; s++) {
+        System.out.print("   ");
+      }
       if (node != null) {
-        System.out.print(node.value + " ");
-        nextNodes[2*i] = node.left;
-        nextNodes[2*i+1] = node.right;
+        System.out.format("%03d", node.value);
+        nextNodes[2 * i] = node.left;
+        nextNodes[2 * i + 1] = node.right;
         added = true;
+      } else {
+        System.out.print(" . ");
+      }
+      for (int s = 0; s < Math.pow(2, spaces); s++) {
+        System.out.print("   ");
       }
     }
     System.out.println();
     if (added) {
-      dumpLine(nextNodes);
+      dumpLine(nextNodes, spaces - 1);
     }
   }
 }

@@ -8,6 +8,19 @@ public class BinarySearchTree extends BinaryTree {
     return insert(this, value);
   }
 
+  public static BinarySearchTree complete(int depth, int base) {
+    if (depth == 0) {
+      return null;
+    }
+    BinarySearchTree tree = new BinarySearchTree (base + (int)Math.pow(2, depth-1));
+    tree.left = complete(depth-1, base);
+    tree.right = complete(depth-1, base + (int)Math.pow(2, depth-1));
+
+//    tree.insert((int)Math.pow(2, depth-2));
+//    tree.insert((int)Math.pow(2, depth-1) + (int)Math.pow(2, depth-2));
+    return tree;
+  }
+
   private static BinarySearchTree insert(BinarySearchTree node, Integer value) {
     if (node == null) {
       return new BinarySearchTree(value);
@@ -19,4 +32,5 @@ public class BinarySearchTree extends BinaryTree {
       return node;
     }
   }
+
 }
