@@ -17,6 +17,29 @@ public class BinarySearchTree extends BinaryTree {
   }
 
   /**
+    * Search an element in the tree and return the node 
+    * @time O(log(n))
+    */
+  public BinarySearchTree search(Integer value) {
+    if (this.value == value) {
+      return this;
+    }
+    if (value < this.value && left != null) {
+      BinarySearchTree searchSub = ((BinarySearchTree)left).search(value);
+      if (searchSub != null) {
+        return searchSub;
+      }
+    }
+    if (value > this.value && right != null) {
+      BinarySearchTree searchSub = ((BinarySearchTree)right).search(value);
+      if (searchSub != null) {
+        return searchSub;
+      }
+    }
+    return null;
+  }
+
+  /**
     * Insert a new value in the BST
     * @value the new value to insert
     * @time O(log(n))

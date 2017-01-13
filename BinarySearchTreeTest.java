@@ -46,14 +46,20 @@ public class BinarySearchTreeTest {
     tree.dump();
     tree = tree.delete(4);
     tree.dump();
-    /*
-    tree.dump();
-    tree = tree.delete(7);
-    tree.dump();
-    tree = tree.delete(6);
-    tree.dump();
-    tree = tree.delete(2);
-    tree.dump();*/
+  }
+
+  @Test
+  public void search() {
+    BinarySearchTree tree = new BinarySearchTree(3, 0);
+    BinarySearchTree found = tree.search(5);
+    assertEquals(new Integer(5), found.value);
+  }
+
+  @Test
+  public void searchNotFound() {
+    BinarySearchTree tree = new BinarySearchTree(3, 0);
+    BinarySearchTree found = tree.search(50);
+    assertNull(found);
   }
 
 }
