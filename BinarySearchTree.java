@@ -13,6 +13,10 @@ public class BinarySearchTree extends BinaryTree {
     return insert(this, value);
   }
 
+  /**
+    * Delete an element from a BST 
+    * @time O(log(n))
+    */
   public BinarySearchTree delete(Integer value) {
     if (value < this.value) {
       left = ((BinarySearchTree) left).delete(value);
@@ -34,7 +38,7 @@ public class BinarySearchTree extends BinaryTree {
     return this;
   }
 
-  public Integer getMinNode() {
+  private Integer getMinNode() {
     if (left == null) {
       return value;
     } else {
@@ -42,7 +46,7 @@ public class BinarySearchTree extends BinaryTree {
     }
   }
 
-  public BinarySearchTree deleteMinNode() {
+  private BinarySearchTree deleteMinNode() {
     if (left.left == null) {
       left = null;
       return this;
