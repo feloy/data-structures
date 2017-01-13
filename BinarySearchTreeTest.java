@@ -42,7 +42,7 @@ public class BinarySearchTreeTest {
 */
   @Test
   public void delete() {
-    BinarySearchTree tree = BinarySearchTree.complete(3, 0);
+    BinarySearchTree tree = new BinarySearchTree(3, 0);
     tree.dump();
     tree = tree.delete(4);
     tree.dump();

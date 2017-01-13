@@ -1,7 +1,19 @@
 public class BinarySearchTree extends BinaryTree {
 
+  /**
+    * Create a node of a BST without child 
+    */
   public BinarySearchTree(Integer value) {
     super(value, null, null);
+  }
+
+
+  public BinarySearchTree(int depth, int base) {
+    this(base + (int) Math.pow(2, depth - 1));
+    if (depth > 1) {
+      left = new BinarySearchTree(depth - 1, base);
+      right = new BinarySearchTree(depth - 1, base + (int) Math.pow(2, depth - 1));
+    }
   }
 
   /**
@@ -53,16 +65,6 @@ public class BinarySearchTree extends BinaryTree {
     } else {
       return ((BinarySearchTree)left).deleteMinNode();
     }
-  }
-
-  public static BinarySearchTree complete(int depth, int base) {
-    if (depth == 0) {
-      return null;
-    }
-    BinarySearchTree tree = new BinarySearchTree(base + (int) Math.pow(2, depth - 1));
-    tree.left = complete(depth - 1, base);
-    tree.right = complete(depth - 1, base + (int) Math.pow(2, depth - 1));
-    return tree;
   }
 
   private static BinarySearchTree insert(BinarySearchTree node, Integer value) {
